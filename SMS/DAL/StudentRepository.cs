@@ -80,6 +80,16 @@ namespace SMS.DAL
             DataSet ds = DBHelper.ExecuteQuery("sp_StudentDetails", para);
             return ds;
         }
+
+        internal DataSet ViewProfile(int Pk_Id)
+        {
+            SqlParameter[] para =
+          {
+                new SqlParameter("@Pk_Id",Pk_Id),
+            };
+            DataSet ds = DBHelper.ExecuteQuery("sp_ViewProfile", para);
+            return ds;
+        }
     }
                    
 }

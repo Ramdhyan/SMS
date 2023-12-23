@@ -1,4 +1,4 @@
-﻿@model SMS.Models.Login
+﻿@*@model SMS.Models.Login*@
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -183,8 +183,18 @@
                                                     <img class="img-responsive" src="/Content/images/layout_img/user_img.jpg" alt="#" />
                                                 }<span class="name_user">@Session["DisplayName"]</span>
                                             </a>
+                                           
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                @*<a class="dropdown-item" href="/Student/ViewProfile/@Session["Pk_Id"]">My Profile</a>*@
+                                                @if (Session["Pk_Id"] == null)
+                                                {
+                                                    <a class="dropdown-item" href="#">My Profile</a>
+
+                                                }
+                                                else
+                                                {
+                                                    @Html.ActionLink("My Profile", "ViewProfile", new { Pk_Id = Session["Pk_Id"] }, new { @class = "dropdown-item" })
+                                                }
                                                 <a class="dropdown-item" href="settings.html">Settings</a>
                                                 <a class="dropdown-item" href="help.html">Help</a>
                                                 <a class="dropdown-item" href="/Login/LogOut"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
