@@ -12,7 +12,7 @@ namespace SMS.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin
+        
         SessionManager sm = new SessionManager();
         StudentRepository objres = new StudentRepository();
 
